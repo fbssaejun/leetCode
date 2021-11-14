@@ -24,6 +24,7 @@ const singleNumber = (nums) => {
   let obj = {}
   //Loop through nums array, create hash table
   for(let num of nums) {
+      //If the key already exists inside the hash table, add 1 to the value, if not, create a key with a value of 1
       obj[num] = obj[num] + 1 || 1
   }
   //Loop through keys inside hash table, look for a key that has a value of 1, if yes, return the key(number)
