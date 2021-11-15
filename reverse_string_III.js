@@ -15,6 +15,8 @@ Output: "doG gniD"
 
 */
 
+/*=======================================================1st solution====================================================================*/
+
 const reverseWords = (s) => {
   //Split string after each space, store it as an array into a variable
   let wordArr = s.split(' ')
@@ -24,4 +26,13 @@ const reverseWords = (s) => {
   })
   //Join reversed string word array, return array
   return reverse.join(' ')
+};
+
+/*=======================================================1st solution====================================================================*/
+
+//Refactor first solution
+const reverseWords = (s) => {
+  return s.split(' ').map(word => {
+    return word.split('').reverse().join('')
+  }).join(' ')
 };
