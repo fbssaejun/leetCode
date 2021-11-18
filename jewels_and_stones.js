@@ -25,13 +25,13 @@ All the characters of jewels are unique.
 
 */
 
+/*=======================================================1st solution====================================================================*/
+
 const numJewelsInStones = (jewels, stones) => {
   let jewelCounter = 0;
-  const stonesArr = stones.split('')
-  const jewelsArr = jewels.split('')
   
-  for(let stone of stonesArr) {
-      if(jewelsArr.includes(stone)) {
+  for(let stone of stones) {
+      if(jewels.includes(stone)) {
           jewelCounter += 1
       }
   }
@@ -39,3 +39,22 @@ const numJewelsInStones = (jewels, stones) => {
   return jewelCounter
 };
 
+/*=======================================================2nd solution====================================================================*/
+//Hash Map
+
+const numJewelsInStones = (jewels, stones) => {
+  const map = {}
+  let count = 0
+  
+  for (let c of jewels) {
+      map[c] = true
+  }
+  
+  for (let c of stones) {
+      if (map[c]) {
+          count++
+      }
+  }
+  return count
+  
+};
