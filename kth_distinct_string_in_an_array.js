@@ -42,17 +42,23 @@ arr[i] consists of lowercase English letters.
 /*=======================================================1st solution====================================================================*/
 
 const kthDistinct = (arr, k) => {
+  //Initialize hash table to store values in an array with key/value pairs to distinguish distinct vallues
   const obj = {}
+  //Initialize empty array to ONLY store distinct values in array
   let keyArr = []
+  //Loop through input array, fill in hash table with key/values 
   for(let num of arr) {
+    //If key already exists, add one to the value. If not, create a key with a value of 1
     obj[num] = obj[num] + 1 || 1
   }
-  
+  //Loop through keys inside obj, make an array with only distinct values
   for(let num in obj) {
     if(obj[num] === 1 ) {
       keyArr.push(num)
     }
   }
+  //Return value if 'kth' element exists inside the distinct array, if not, return empty string.
+  //keyArr[k-1] because: array index starts with zero, where k means kth position starting from 1 
   return keyArr[k-1] || '';
 
 };
