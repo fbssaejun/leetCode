@@ -62,3 +62,22 @@ const kthDistinct = (arr, k) => {
   return keyArr[k-1] || '';
 
 };
+
+/*=======================================================2nd solution====================================================================*/
+
+const kthDistinct = (arr, k) => {
+  //Initialize hash table to store values in an array with key/value pairs to distinguish distinct vallues
+  const obj = {};
+  //Loop through input array, fill in hash table with key/values 
+  for(let num of arr) {
+      //If key already exists, add one to the value. If not, create a key with a value of 1
+      obj[num] = obj[num] + 1 || 1;
+  }
+  //Filter through keys inside the array, if value is 1, it means the element is distinct, store them into a variable.
+  let keys = Object.keys(obj).filter(num => obj[num] === 1 )
+  
+  //Return value if 'kth' element exists inside the distinct array, if not, return empty string.
+  //keyArr[k-1] because: array index starts with zero, where k means kth position starting from 1 
+  return keys[k-1] || '';
+
+};
