@@ -79,4 +79,9 @@ WHERE Customers.id NOT IN
 
 /*=======================================================2nd solution====================================================================*/
 
-
+/* Select  all customers, Join Orders table on customerIds, only return customers that has their customerId with a vallue of NULL in orders table*/
+SELECT Name AS 'Customers'
+FROM Customers 
+LEFT JOIN Orders 
+ON Customers.id = Orders.CustomerId
+WHERE Orders.CustomerId IS NULL
