@@ -31,3 +31,14 @@ const moveZeroes = (nums) => {
 
   return nums;
 };
+
+/*=======================================================2nd solution====================================================================*/
+
+const moveZeros = (nums) => {
+  //Filter all numbers that are not zero
+  let filtered = nums.filter((num) => num !== 0);
+  //Filter all numbers that are zero
+  let zeros = nums.filter((num) => num === 0);
+  //Combine two arrays
+  return filtered.concat(zeros);
+};
