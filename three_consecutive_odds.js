@@ -23,15 +23,42 @@ Constraints:
 
 */
 
-
 /*=======================================================1st solution====================================================================*/
 
-const threeConsecutiveOdds = arr =>
-  
+const threeConsecutiveOdds = (arr) =>
   arr
-  //Map through each number, return the modulus of 2 (Odd numbers will always have remainder of '1')
-    .map(n => n % 2)
+    //Map through each number, return the modulus of 2 (Odd numbers will always have remainder of '1')
+    .map((n) => n % 2)
     //Join the numbers as string
-    .join('')
+    .join("")
     //If the final string includes three '1's, it means it has three consecutive odds
-    .includes('111');
+    .includes("111");
+
+/*=======================================================2nd solution====================================================================*/
+
+const threeConsecutiveOdds = (arr) => {
+  //Initialize counter variable to count odd numbers
+  let counter = 0;
+
+  //Loop  through numbers in input array
+  for (let num of arr) {
+    //Check if there has been three consecutive odd numbers, if yes, return true right away, if not, continue
+    if (counter >= 3) {
+      return true;
+    }
+
+    //Increment counter if odd number has been found
+    if (num % 2 !== 0) {
+      counter++;
+      //If not, reset counter
+    } else {
+      counter = 0;
+    }
+  }
+
+  //After looping through all numbers, if counter is bigger than 3 , return true, else false
+  if (counter >= 3) {
+    return true;
+  }
+  return false;
+};
