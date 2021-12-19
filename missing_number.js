@@ -35,16 +35,21 @@ All the numbers of nums are unique.
 /*=======================================================1st solution====================================================================*/
 
 const missingNumber = (nums) => {
+  //Create an empty array to store all numbers according to the length of the input array
   let arr = [];
 
+  //Push numbers within the range to empty arr
   for (let i = 0; i <= nums.length; i++) {
     arr.push(i);
   }
 
+  //Sort two arrays to ascending order 
   let arr1 = arr.sort((a, b) => a - b);
   let arr2 = nums.sort((a, b) => a - b);
 
+  //Loop according to the original(the proper array with all numbers in the range) array's length
   for (let i = 0; i < arr1.length; i++) {
+    //If the current number does not match the other array(input array), return the number since that is the missing number
     if (arr1[i] !== arr2[i]) {
       return i;
     }
