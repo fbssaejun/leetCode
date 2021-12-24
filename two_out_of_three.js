@@ -68,3 +68,23 @@ const twoOutOfThree = (nums1, nums2, nums3) => {
   //Remove duplicate values, return unique numbers in the array
   return [...new Set(arr)];
 };
+
+
+/*=======================================================2nd solution====================================================================*/
+
+
+const twoOutOfThree = (nums1, nums2, nums3) => {
+  //Combine all three arrays, store it inside a variable
+  var allNums = [...nums1,...nums2,...nums3]
+  //Remove alll duplicate values
+  var n = [...new Set(allNums)]
+  //Initialize an empty array to store numbers that appear in at least two or more arrays
+  var result =[]
+  //Loop through array with only unique values of numbers
+  for(let i=0;i<n.length;i++){
+      //Check if the number exists in at least two among the three input arrays
+      if((nums1.includes(n[i]) && nums2.includes(n[i])) || (nums1.includes(n[i]) && nums3.includes(n[i])) || (nums3.includes(n[i]) && nums2.includes(n[i])) ) result.push(n[i])
+  }
+  //Return the result
+  return result
+};
