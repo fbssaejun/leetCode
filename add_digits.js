@@ -37,3 +37,21 @@ const addDigits = (num) => {
   // 12,345 = (1 × 9,999 + 2 × 999 + 3 × 99 + 4 × 9) + (1 + 2 + 3 + 4 + 5).
   return num % 9 === 0 ? 9 : num % 9;
 };
+
+/*=======================================================2nd solution====================================================================*/
+
+//Using recursion
+const addDigits = (num) => {
+  //If number is only 1 digit, return num
+  if (num < 10) return num;
+  //split number as string into array
+  const splitNum = num.toString().split('');
+  //Initialilze empty variable to store sum of each digit from splitNum array
+  let sum = 0;
+  //Loop through array, sum up all numbers
+  for (const digit of splitNum) {
+      sum += parseInt(digit);
+  }
+  //Call function again until the input number is only 1 digit
+  return addDigits(sum);
+};
