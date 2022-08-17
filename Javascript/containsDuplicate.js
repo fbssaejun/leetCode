@@ -26,5 +26,7 @@ Constraints:
 */
 
 const containsDuplicate = (nums) => {
+  // compare original length of array and array with distinct numbers of original array
+  // if they match, it means the original array only contains distinct numbers
   return !(nums.length === [...new Set(nums)].length)
 }
