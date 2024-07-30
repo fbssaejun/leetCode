@@ -35,6 +35,18 @@ const gcdOfStrings = (str1, str2) => {
   return str1.substring(0, gcd(str1.length, str2.length));
 };
 
+// Explanation:
+/*
+Example of computing GCD using the Euclidean algorithm:
+Initial values: a = 4, b = 2
+Repeat the process:
+
+Compute a % b = 4 % 2 = 0
+Replace a with b and b with a % b:
+New values: a = 2, b = 0
+At this point, since b = 0, the GCD is a, which is 2.
+*/
+
 //Tests:
 console.log(gcdOfStrings("ABAB", "ABABAB")) // => "AB"
 console.log(gcdOfStrings("ABAB", "ABABABAB")) // => "ABAB"
