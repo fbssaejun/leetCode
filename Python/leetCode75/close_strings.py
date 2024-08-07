@@ -40,17 +40,11 @@ word1 and word2 contain only lowercase English letters.
 '''
 
 # Solution:
-def closeStrings(word1, word2):
-    # Check if both words have the same set of characters
-    if set(word1) != set(word2):
-        return False
 
-    # Check if both words have the same frequency of characters
-    from collections import Counter
-    counter1 = Counter(word1)
-    counter2 = Counter(word2)
+from collections import Counter
 
-    return sorted(counter1.values()) == sorted(counter2.values())
+def closeStrings(word1: str, word2: str) -> bool:
+  return set(word1) == set(word2) and sorted(Counter(word1).values()) == sorted(Counter(word2).values())
 
 # Example test cases
 print(closeStrings("abc", "bca"))  # Output: True
